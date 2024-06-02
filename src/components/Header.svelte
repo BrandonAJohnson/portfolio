@@ -3,12 +3,16 @@
 
 	let tabs = [
 		{
-			name: 'About Me',
-			link: '#aboutme'
+			name: 'Home',
+			link: '#home'
 		},
 		{
 			name: 'Projects',
 			link: '#projects'
+		},
+		{
+			name: 'About Me',
+			link: '#aboutme'
 		},
 		{
 			name: 'Blog',
@@ -23,7 +27,7 @@
 
 <header class={'sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between border border-solid ' + ((y > 0) ? ' py-4 bg-slate-950 border-slate-950 ' : ' py-6 bg-transparent border-transparent ')}>
 	<h1 class="text-4xl"><img src='/images/me-transparent.png' alt='Brandon Johnson' class="h-20 w-20 inline-block"/> <b class="font-extrabold">Brandon</b> Johnson</h1>
-	<div class="sm:flex items-center gap-4 hidden">
+	<div class="sm:flex ml-auto pr-4 items-center gap-4 hidden">
 		{#each tabs as tab, i}
 			<a class="duration-200 hover:text-amber-400" href={tab.link}>
 				<p>{tab.name}</p>

@@ -1,6 +1,8 @@
 <script>
-	import Step from "./Step.svelte";
+// @ts-nocheck
 
+	import Step from "./Step.svelte";
+	import Chart from "./Chart.svelte";
 
 	const steps = [
 		{
@@ -92,14 +94,78 @@
 			image: '/images/python.png',
 		},
 	];
+
+	const skills = [
+		{
+			name: 'A First Generation College Graduate',
+			image: '/images/wvu.png',
+			description: "I am the only member of my family to ever graduate from college, and I have done it twice! I received a Master's Degree in Software Engineering in 2023 from West Virginia University. Prior to that I attended Bluefield State University and received a Bachelor's in Computer Science."
+		},
+		{
+			name: 'A Husband and Father',
+			description: "I have been married to my wife Manda since 2012. We have 3 children: Emma, Jacob and Elaina. When I am not coding, I am normally spending time with my family.",
+		},
+		{
+			name: 'A Lifelong Learner',
+			description: 'I am constantly taking courses, reading tech-related books, and coding. In this field, if you aren\'t pushing forward, you will fall behind. I never want to settle and think I am "good enough".'
+		},
+	];
+
+
+	let type = 'bar';
+	let data = {
+		labels: ['HTML', 'CSS', 'JavaScript', 'SQL', 'Perl', 'TypeScript', 'AngularJS', 'C#', 'Svelte', 'React',],
+		datasets: [
+			{
+				axis: 'y',
+				label: 'Years',
+				data: [10,10,10,8,8,5,5,3,2,1],
+				fill: false,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.3)',
+					'rgba(255, 159, 64, 0.3)',
+					'rgba(255, 205, 86, 0.3)',
+					'rgba(75, 192, 192, 0.3)',
+					'rgba(54, 162, 235, 0.3)',
+					'rgba(153, 102, 255, 0.3)',
+					'rgba(201, 203, 207, 0.3)'
+				],
+				borderColor: [
+					'rgb(255, 99, 132)',
+					'rgb(255, 159, 64)',
+					'rgb(255, 205, 86)',
+					'rgb(75, 192, 192)',
+					'rgb(54, 162, 235)',
+					'rgb(153, 102, 255)',
+					'rgb(201, 203, 207)'
+				],
+				borderWidth: 3
+			}
+		]
+	};
+
+	let options = {
+		plugins: {
+			legend: {
+				display: false
+			}
+		},
+		indexAxis: 'y',
+		elements: {
+			bar: {
+				borderWidth: 3,
+			},
+		},
+		responsive: true,
+	};
 </script>
 
 <main class="flex flex-col flex-1">
-	<section id="aboutme" class="grid grid-cols-1 lg:grid-cols-1 gap-10 py-8 sm:py-14">
+	<section id="home" class="grid grid-cols-1 lg:grid-cols-1 gap-10 py-8 sm:py-14">
 		<div class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
 			<h2 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
 				Hello! I'm <span class="text-yellow-400">Brandon Johnson</span><br>
-				and I'm a Full Stack Web <span class="text-yellow-400">Developer</span>
+				and I'm a <span class="text-yellow-400">Full Stack Web Developer</span>
 			</h2>
 			<p class="text-base sm:text-lg md:text-xl">
 				My <span class="text-yellow-400">preferred tech</span> includes
@@ -110,7 +176,7 @@
 					{/if}
 				{/each}
 			</p>
-			<a href="#" target="_blank" class="blueShadow mx-auto lg:mr-auto text-base sm:text-lg md:text-xl relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950 cursor-pointer">
+			<a href="mailto:brandonajohnson09@gmail.com" target="_blank" class="blueShadow mx-auto lg:mr-auto text-base sm:text-lg md:text-xl relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950 cursor-pointer">
 				<div class="absolute top-0 right-full w-full h-full bg-blue-400 opacity-50 group-hover:translate-x-full z-0 duration-200"></div>
 				<h4 class="relative z-9">Contact Me &rarr;</h4>
 			</a>
@@ -132,11 +198,37 @@
 			{/each}
 		</div>
 		<div class="flex flex-col text-center">
-			<h3 class="font-semibold text-xl sm:text-2xl md:text-3xl">A little more...</h3>
+			<h3 class="font-semibold text-xl sm:text-2xl md:text-3xl">Other things I have worked on...</h3>
 		</div>
 		<a href="https://github.com/BrandonAJohnson" target="_blank" class="mx-auto px-4 py-2 rounded-md border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:bg-white hover:text-blue-900 duration-200">
 			Check out my github! <i class="fa-solid fa-code"></i>
 		</a>
+	</section>
+	<section id="aboutme" class="py-20 pt-10 lg:pt-16 lg:py-32 flex flex-col gap-16 sm:gap-20 md:gap-24 relative">
+		<div class="flex flex-col gap-2 relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-blue-700
+			after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-blue-700 py-6">
+			<h6 class="text-lg sm:text-xl md:text-2xl mx-auto">Want to know more?</h6>
+			<p class="mx-auto font-semibold text-lg sm:text-xl md:text-2xl mb-8">I am...</p>
+			<div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
+				{#each skills as skill, index}
+					<div class="flex gap-6 sm:gap-8">
+						<p class="text-4xl sm:text-5xl md:text-6xl text-slate-500 font-semi-bold">{index<9?0:''}{index+1}</p>
+						<div class="flex flex-col gap-6 sm:gap-8">
+							<h3 class="text-2xl sm:text-3xl md:5xl">
+								{#if skill.image}
+									<img src={skill.image} alt={skill.name} class="inline-block h-10 w-auto"/>
+								{/if}
+								{skill.name}
+							</h3>
+							<p>{skill.description}</p>
+						</div>
+					</div>
+				{/each}
+			</div>
+			<div class="m-8 flex flex-col gap-2">
+				<Chart options={options} type={type} data={data}></Chart>
+			</div>
+		</div>
 	</section>
 	<section id="blog" class="py-20 lg:py-32 flex flex-col gap-24">
 		<div class="flex flex-col text-center">
@@ -146,6 +238,7 @@
 	<section id="links" class="py-20 lg:py-32 flex flex-col gap-24">
 		<div class="flex flex-col text-center">
 			<h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">Where you can find me</h3>
+			<h3><a href="https://www.linkedin.com/in/brandon-johnson-662256203/" target="_blank" class="inline-block"><img class="h-8 w-auto" src="/images/linkedin.png" alt="linkedin"/></a></h3>
 		</div>
 	</section>
 </main>
