@@ -119,7 +119,18 @@
 			{
 				axis: 'y',
 				label: 'Years',
-				data: [10,10,10,8,8,5,5,3,2,1],
+				data: [
+					10, // html
+					10, // css
+					10, // js
+					8, // sql
+					8, // perl
+					5, // ts
+					5, // angularjs
+					3, // c#
+					2, // svelte
+					1 // react
+				],
 				fill: false,
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.3)',
@@ -208,7 +219,7 @@
 		<div class="flex flex-col gap-2 relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-blue-700
 			after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-blue-700 py-6">
 			<h6 class="text-lg sm:text-xl md:text-2xl mx-auto">Want to know more?</h6>
-			<p class="mx-auto font-semibold text-lg sm:text-xl md:text-2xl mb-8">I am...</p>
+			<p class="mx-auto font-semibold text-lg sm:text-xl md:text-2xl mb-8 text-amber-400">I am...</p>
 			<div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
 				{#each skills as skill, index}
 					<div class="flex gap-6 sm:gap-8">
@@ -225,8 +236,62 @@
 					</div>
 				{/each}
 			</div>
-			<div class="m-8 flex flex-col gap-2">
+			<h5 class="text-2xl sm:text-3xl font-semibold text-center mt-10">My <span class="text-bold text-amber-400">Experience</span> and <span class="text-bold text-blue-400">Skill Set</span></h5>
+			<div class="mb-8 flex flex-col gap-2">
 				<Chart options={options} type={type} data={data}></Chart>
+			</div>
+			<div class="flex flex-col overflow-x-scroll gap-10 max-x-[800px] mx-auto w-full">
+				<table class="bg-white text-slate-700 rounded text-center">
+					<thead class="border-b border-solid border-slate-200">
+						<tr>
+							<th></th>
+							<th class="whitespace-nowrap p-2 px-4">Candidate #1</th>
+							<th class="whitespace-nowrap p-2 px-4">Candidate #2</th>
+							<th class="whitespace-nowrap p-2 px-4">Candidate #3</th>
+							<th class="whitespace-nowrap p-2 px-4 bg-blue-700 text-white">Me</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b border-solid border-slate-200">
+							<td class="border-r border-solid border-white pl-4 pr-8 py-4 font-bold text-sm whitespace-nowrap">Programming</td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-xmark text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-green-500 text-2xl"></i></td>
+						</tr>
+						<tr class="border-b border-solid border-slate-200">
+							<td class="border-r border-solid border-white pl-4 pr-8 py-4 font-bold text-sm whitespace-nowrap">Leadership</td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-xmark text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-green-500 text-2xl"></i></td>
+						</tr>
+						<tr class="border-b border-solid border-slate-200">
+							<td class="border-r border-solid border-white pl-4 pr-8 py-4 font-bold text-sm whitespace-nowrap">Critical Thinking</td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-xmark text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-green-500 text-2xl"></i></td>
+						</tr>
+						<tr class="border-b border-solid border-slate-200">
+							<td class="border-r border-solid border-white pl-4 pr-8 py-4 font-bold text-sm whitespace-nowrap">Analysis & Design</td>
+							<td><i class="fa-solid fa-xmark text-slate-500"></i></td>
+							<td><i class="fa-solid fa-xmark text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-green-500 text-2xl"></i></td>
+						</tr>
+						<tr class="border-b border-solid border-slate-200">
+							<td class="border-r border-solid border-white pl-4 pr-8 py-4 font-bold text-sm whitespace-nowrap">Training & Mentoring</td>
+							<td><i class="fa-solid fa-xmark text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-slate-500"></i></td>
+							<td><i class="fa-solid fa-check text-green-500 text-2xl"></i></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mx-auto -mt-12 italic sm:hidden opacity-50">
+				<p>Scroll to see more &rarr;</p>
 			</div>
 		</div>
 	</section>
@@ -238,7 +303,7 @@
 	<section id="links" class="py-20 lg:py-32 flex flex-col gap-24">
 		<div class="flex flex-col text-center">
 			<h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">Where you can find me</h3>
-			<h3><a href="https://www.linkedin.com/in/brandon-johnson-662256203/" target="_blank" class="inline-block"><img class="h-8 w-auto" src="/images/linkedin.png" alt="linkedin"/></a></h3>
+			<h3 class="m-8"><a href="https://www.linkedin.com/in/brandon-johnson-662256203/" target="_blank" class="inline-block"><img class="h-16 w-auto" src="/images/linkedin.png" alt="linkedin"/></a></h3>
 		</div>
 	</section>
 </main>

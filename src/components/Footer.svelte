@@ -1,3 +1,1 @@
-
-
-<div>Footer</div>
+<div>Thanks for checking out my site! :)</div>
